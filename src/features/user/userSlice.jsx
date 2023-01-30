@@ -5,6 +5,7 @@ import fetch from "../../utils/axios";
 import {
   addUserToLocaStorage,
   getUserFromLocalStorage,
+  removeUserFromLocalStoeage,
 } from "../../utils/localStorage";
 
 const initialState = {
@@ -44,7 +45,13 @@ const userSlice = createSlice({
     toggleSidebar: (state) => {
       state.isSidebarOpen = !state.isSidebarOpen;
     },
+    logoutUser: (state) => {
+      state.user = null;
+      state.isSidebarOpen = false;
+      removeUserFromLocalStoeage();
+    },
   },
+
   extraReducers: {
     [registerUser.pending]: (state) => {
       state.isLoading = true;
@@ -77,5 +84,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { toggleSidebar } = userSlice.actions;
+export const { toggleSidebar, logoutUser } = userSlice.actions;
 export default userSlice.reducer;
