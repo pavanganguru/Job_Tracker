@@ -2,14 +2,7 @@ import { showLoading, hideLoading, getAllJobs } from "../allJobs/allJobSlice";
 import fetch from "../../utils/axios";
 import { clearValues } from "./jobSlice";
 import { logoutUser } from "../user/userSlice";
-
-const authHeader = (thunkAPI) => {
-  return {
-    headers: {
-      Authorization: `Bearer ${thunkAPI.getState().user.user.token}`,
-    },
-  };
-};
+import authHeader from "../../utils/authHeader";
 
 export const createJObThunk = async (job, thunkAPI) => {
   try {
