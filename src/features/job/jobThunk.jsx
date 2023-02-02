@@ -1,4 +1,4 @@
-import { showLoading, hideLoading, getAllJobs } from "../allJobs/allJobSlice";
+import { showLoading, hideLoading, getAllJobs } from "../allJobs/allJobsSlice";
 import fetch from "../../utils/axios";
 import { clearValues } from "./jobSlice";
 import { logoutUser } from "../user/userSlice";
